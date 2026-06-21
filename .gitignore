@@ -1,0 +1,39 @@
+# Dependencias
+node_modules/
+vendor/
+
+# Build
+dist/
+dist-ssr/
+
+# Entorno
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Docker
+mysql_data/
+backups/
+
+# Backend uploads (contenido generado)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# IDE / SO
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Vite
+*.local

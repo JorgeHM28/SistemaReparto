@@ -1,0 +1,7 @@
+vendor
+.git
+uploads/*
+!uploads/.gitkeep
+*.md
+.env
+.env.*
