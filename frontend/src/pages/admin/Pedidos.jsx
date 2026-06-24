@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { usuarioService } from "../../services/usuarioService";
 import {
   pedidoService,
@@ -236,7 +237,7 @@ export default function Pedidos() {
         )}
       </div>
 
-      {modalAbierto && (
+      {modalAbierto && createPortal(
         <div className="modal-overlay" onClick={cerrarModal}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             <h2>{editando ? `Editar pedido #${editando.id}` : "Nuevo pedido"}</h2>
@@ -327,7 +328,8 @@ export default function Pedidos() {
               </div>
             </form>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

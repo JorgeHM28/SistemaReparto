@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { usuarioService } from "../../services/usuarioService";
 import { rutaService, ESTADO_RUTA_LABELS } from "../../services/rutaService";
 import { ESTADO_LABELS } from "../../services/pedidoService";
@@ -175,7 +176,7 @@ export default function Rutas() {
         </>
       )}
 
-      {modalCrear && (
+      {modalCrear && createPortal(
         <div className="modal-overlay" onClick={() => setModalCrear(false)}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             <h2>Nueva ruta</h2>
@@ -239,10 +240,11 @@ export default function Rutas() {
               </div>
             </form>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
-      {modalDetalle && (
+      {modalDetalle && createPortal(
         <div className="modal-overlay" onClick={() => setModalDetalle(null)}>
           <div className="modal" style={{ maxWidth: 560 }} onClick={(e) => e.stopPropagation()}>
             <h2>Ruta #{modalDetalle.ruta.id}</h2>
@@ -311,7 +313,8 @@ export default function Rutas() {
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

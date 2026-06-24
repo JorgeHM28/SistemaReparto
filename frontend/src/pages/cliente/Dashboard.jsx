@@ -34,7 +34,7 @@ export default function Dashboard() {
       </StatsGrid>
 
       <div className="quick-links">
-        <Link to="/cliente/pedidos" className="btn btn-primary">+ Nuevo pedido</Link>
+        <Link to="/cliente/pedidos" state={{ openModal: true }} className="btn btn-primary">+ Nuevo pedido</Link>
         <Link to="/cliente/seguimiento" className="btn btn-secondary">Seguimiento en vivo</Link>
       </div>
 
