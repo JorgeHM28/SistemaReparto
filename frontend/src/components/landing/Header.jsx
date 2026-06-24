@@ -73,7 +73,6 @@ function Header() {
                 Prueba gratis
               </a>
               </Link>
-
             </li>
           </ul>
         </nav>
