@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Pricing() {
   return (
     <section className="pricing" id="precios" aria-labelledby="pricing-title">
@@ -31,9 +33,19 @@ function Pricing() {
               <li>Rutas sugeridas con OSM</li>
               <li>Soporte por correo (48 h)</li>
             </ul>
-            <a href="#registro" className="btn btn-outline btn-block">
-              Comenzar gratis
-            </a>
+            <Link to="/register">
+              <a className="btn btn-primary btn-block">
+                Comenzar gratis
+              
+              </a>
+            </Link>
+
+            <Link to="/login">
+              <a className="btn btn-outline btn-block">
+                Iniciar Sesion
+              </a>
+            </Link>
+
           </article>
 
           <article className="pricing-card pricing-card--featured">
@@ -58,9 +70,16 @@ function Pricing() {
               <li>Soporte prioritario por WhatsApp</li>
               <li>Onboarding personalizado</li>
             </ul>
-            <a href="#registro" className="btn btn-primary btn-block">
-              Iniciar prueba Pro
-            </a>
+            <Link to="/register">
+              <a  className="btn btn-primary btn-block">
+                Comenzar prueba Pro
+              </a>
+            </Link>
+            <Link to="/login">
+              <a href="#registro" className="btn btn-outline btn-block">
+                Iniciar Sesion Pro          
+              </a>
+            </Link>
           </article>
         </div>
       </div>

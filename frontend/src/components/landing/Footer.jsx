@@ -5,7 +5,7 @@ function Footer() {
         <div className="footer-brand">
           <a href="#inicio" className="logo logo--footer">
             <img
-              src="/img/logo-deliverytrack.svg"
+              src="/public/logo-deliverytrack.svg"
               alt=""
               width="32"
               height="32"

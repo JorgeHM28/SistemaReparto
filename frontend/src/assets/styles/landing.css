@@ -156,14 +156,14 @@ address {
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  padding: 0.875rem 1.5rem;
+  padding: 0.875rem 1.5rem !important;
   font-family: var(--font-body);
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-size: 0.9375rem !important;
+  font-weight: 600 !important;
   line-height: 1;
   border-radius: var(--radius-md);
-  border: 2px solid transparent;
-  cursor: pointer;
+  border: 2px solid transparent !important;
+  cursor: pointer !important;
   transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
   text-align: center;
 }
@@ -173,14 +173,14 @@ address {
 }
 
 .btn-primary {
-  background-color: var(--color-teal-500);
+  background-color: var(--color-teal-500) !important;
   color: var(--color-text-inverse);
   border-color: var(--color-teal-500);
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  background-color: var(--color-teal-400);
+  background-color: var(--color-teal-400) !important;
   border-color: var(--color-teal-400);
   color: var(--color-text-inverse);
 }

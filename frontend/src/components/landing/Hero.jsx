@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
@@ -11,12 +13,17 @@ function Hero() {
             La plataforma SaaS diseñada para pymes bolivianas que centraliza tus pedidos, calcula rutas eficientes y rastrea a tus motociclistas sin necesidad de instalar aplicaciones pesadas.
           </p>
           <div className="hero-actions">
-            <a href="#registro" className="btn btn-primary">
-              Inicia tu prueba gratis
+            <Link to="/register">
+              <a  className="btn btn-primary">
+              Inicia prueba gratis 👤
             </a>
-            <a href="#caracteristicas" className="btn btn-ghost">
-              Ver cómo funciona
+            </Link>
+          <Link to="/login">
+            <a  className="btn btn-ghost">
+              Logueate ➡️
             </a>
+          </Link>
+
           </div>
           <ul className="hero-stats" aria-label="Indicadores clave">
             <li>
@@ -52,7 +59,7 @@ function Hero() {
               <div className="mockup-main">
                 <div className="mockup-map">
                   <img
-                    src="/img/mockup-mapa.svg"
+                    src="/public/mockup-mapa.svg"
                     alt=""
                     className="mockup-map-img"
                   />

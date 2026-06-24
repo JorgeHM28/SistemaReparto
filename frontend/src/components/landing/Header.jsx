@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from "react-router-dom";
 
 function Header() {
   const [navOpen, setNavOpen] = useState(false);
@@ -16,7 +17,7 @@ function Header() {
       <div className="container header-inner">
         <a href="#inicio" className="logo" aria-label="DeliveryTrack — Inicio">
           <img
-            src="/img/logo-deliverytrack.svg"
+            src="/public/logo-deliverytrack.svg"
             alt=""
             width="36"
             height="36"
@@ -65,9 +66,12 @@ function Header() {
               </a>
             </li>
             <li>
-              <a href="#registro" className="nav-cta" onClick={closeNav}>
+              <Link to="/register">
+                <a  className="nav-cta" onClick={closeNav}>
                 Prueba gratis
               </a>
+              </Link>
+
             </li>
           </ul>
         </nav>

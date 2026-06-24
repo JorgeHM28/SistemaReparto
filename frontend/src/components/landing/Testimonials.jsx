@@ -23,7 +23,7 @@ function Testimonials() {
             </p>
             <footer className="testimonial-author">
               <img
-                src="/img/avatar-mariana.svg"
+                src="/public/avatar-mariana.svg"
                 alt=""
                 width="48"
                 height="48"
@@ -45,7 +45,7 @@ function Testimonials() {
             </p>
             <footer className="testimonial-author">
               <img
-                src="/img/avatar-carlos.svg"
+                src="/public/avatar-carlos.svg"
                 alt=""
                 width="48"
                 height="48"
@@ -67,7 +67,7 @@ function Testimonials() {
             </p>
             <footer className="testimonial-author">
               <img
-                src="/img/avatar-roberto.svg"
+                src="/public/avatar-roberto.svg"
                 alt=""
                 width="48"
                 height="48"
