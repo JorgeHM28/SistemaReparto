@@ -216,3 +216,105 @@
     display: none;
   }
 }
+
+[data-theme="dark"] {
+  --color-surface: #0a1628;
+  --color-surface-raised: #0f2240;
+  --color-border: #1e3d6e;
+  --color-border-strong: #163058;
+
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+
+  --color-error-bg: rgba(220, 38, 38, 0.12);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --shadow-featured: 0 16px 48px rgba(13, 148, 136, 0.25);
+
+  --dashboard-navbar-bg: #060d18;
+  --dashboard-sidebar-bg: #0a1628;
+  --dashboard-main-bg: #0a1628;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  color: inherit;
+}
+
+.theme-toggle-track {
+  position: relative;
+  width: 2.75rem;
+  height: 1.5rem;
+  background: var(--color-border-strong);
+  border-radius: 999px;
+  transition: background-color var(--transition-fast);
+}
+
+[data-theme="dark"] .theme-toggle-track {
+  background: var(--color-teal-500);
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  background: var(--color-surface-raised);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), background-color var(--transition-fast);
+}
+
+[data-theme="dark"] .theme-toggle-thumb {
+  transform: translateX(1.25rem);
+  background: var(--color-text-inverse);
+}
+
+.theme-toggle-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+}
+
+.theme-toggle--landing {
+  color: var(--color-navy-800);
+}
+
+[data-theme="dark"] .theme-toggle--landing {
+  color: var(--color-text-inverse);
+}
+
+[data-theme="dark"] .theme-toggle--landing .theme-toggle-track {
+  background: var(--color-navy-600);
+}
+
+.theme-toggle--dashboard {
+  color: var(--color-text-inverse);
+}
+
+.theme-toggle--dashboard .theme-toggle-track {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .theme-toggle--dashboard .theme-toggle-track {
+  background: var(--color-teal-500);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-label {
+    display: none;
+  }
+}
+

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 export default function Navbar() {
   const { usuario, logout } = useAuth();
@@ -21,6 +22,7 @@ export default function Navbar() {
 
       {usuario && (
         <div className="dashboard-navbar-actions">
+          <ThemeToggle className="theme-toggle--dashboard" />
           <span className="dashboard-navbar-user">
             {usuario.nombre}{" "}
             <span className="dashboard-navbar-user-role">({usuario.rol})</span>

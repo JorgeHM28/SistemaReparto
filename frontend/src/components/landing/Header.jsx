@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {Link} from "react-router-dom";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 function Header() {
   const [navOpen, setNavOpen] = useState(false);
@@ -17,7 +18,7 @@ function Header() {
       <div className="container header-inner">
         <a href="#inicio" className="logo" aria-label="DeliveryTrack — Inicio">
           <img
-            src="/public/logo-deliverytrack.svg"
+            src="/logo-deliverytrack.svg"
             alt=""
             width="36"
             height="36"
@@ -39,6 +40,7 @@ function Header() {
           <span className="nav-toggle-bar"></span>
           <span className="nav-toggle-bar"></span>
         </button>
+        <ThemeToggle className="theme-toggle--landing header-theme-toggle" />
         <nav
           className={`main-nav${navOpen ? " is-open" : ""}`}
           id="main-nav"
