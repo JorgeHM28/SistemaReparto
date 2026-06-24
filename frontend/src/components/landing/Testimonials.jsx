@@ -30,7 +30,7 @@ function Testimonials() {
                 className="testimonial-avatar"
               />
               <div>
-                <cite className="testimonial-name">Mariana Quispe</cite>
+                <cite className="testimonial-name">Mariana Quispe COÑOOOOO</cite>
                 <span className="testimonial-role">Dueña · Sabor Paceño, La Paz</span>
               </div>
             </footer>
@@ -45,7 +45,7 @@ function Testimonials() {
             </p>
             <footer className="testimonial-author">
               <img
-                src="/public/avatar-carlos.svg"
+                src="/avatar-carlos.svg"
                 alt=""
                 width="48"
                 height="48"
@@ -67,7 +67,7 @@ function Testimonials() {
             </p>
             <footer className="testimonial-author">
               <img
-                src="/public/avatar-roberto.svg"
+                src="/avatar-roberto.svg"
                 alt=""
                 width="48"
                 height="48"
