@@ -577,6 +577,14 @@ address {
   gap: var(--space-xl);
 }
 
+.ps-illustration {
+  width: 100%;
+  margin-bottom: var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
 .ps-card {
   padding: var(--space-xl);
   border-radius: var(--radius-lg);
@@ -693,6 +701,14 @@ address {
   line-height: 1;
 }
 
+.feature-illustration {
+  width: 100%;
+  max-width: 12.5rem;
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-navy-700);
+}
+
 .feature-icon {
   width: 2.5rem;
   height: 2.5rem;
@@ -716,6 +732,17 @@ address {
 .pricing {
   padding-block: var(--space-3xl);
   background-color: var(--color-surface);
+}
+
+.pricing-visual {
+  margin: 0 auto var(--space-2xl);
+  max-width: 35rem;
+}
+
+.pricing-visual img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .pricing-grid {

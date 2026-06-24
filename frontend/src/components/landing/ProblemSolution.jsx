@@ -13,6 +13,14 @@ function ProblemSolution() {
 
         <div className="ps-grid">
           <article className="ps-card ps-card--problem">
+            <img
+              src="/illustration-caos-delivery.svg"
+              alt="Operación de delivery desorganizada con planillas y mensajes"
+              className="ps-illustration"
+              width="480"
+              height="320"
+              loading="lazy"
+            />
             <div className="ps-icon" aria-hidden="true">
               <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="6" y="10" width="36" height="28" rx="2" stroke="currentColor" strokeWidth="2" />
@@ -33,6 +41,14 @@ function ProblemSolution() {
           </article>
 
           <article className="ps-card ps-card--solution">
+            <img
+              src="/illustration-dashboard-control.svg"
+              alt="Panel centralizado de DeliveryTrack con mapa y métricas en vivo"
+              className="ps-illustration"
+              width="480"
+              height="320"
+              loading="lazy"
+            />
             <div className="ps-icon" aria-hidden="true">
               <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="24" cy="24" r="18" stroke="currentColor" strokeWidth="2" />

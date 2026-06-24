@@ -59,7 +59,7 @@ function Hero() {
               <div className="mockup-main">
                 <div className="mockup-map">
                   <img
-                    src="/public/mockup-mapa.svg"
+                    src="/mockup-mapa.svg"
                     alt=""
                     className="mockup-map-img"
                   />

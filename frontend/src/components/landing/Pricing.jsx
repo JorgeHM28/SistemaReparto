@@ -12,6 +12,16 @@ function Pricing() {
           </p>
         </header>
 
+        <figure className="pricing-visual">
+          <img
+            src="/illustration-pricing-growth.svg"
+            alt="Comparación de planes: emprendedor, empresa pro y operación escalada"
+            width="560"
+            height="200"
+            loading="lazy"
+          />
+        </figure>
+
         <div className="pricing-grid">
           <article className="pricing-card">
             <header className="pricing-card-header">

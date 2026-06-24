@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" fill="none">
+  <rect width="480" height="320" rx="16" fill="#0a1628"/>
+  <rect x="24" y="24" width="432" height="272" rx="12" fill="#0f2240" stroke="#163058" stroke-width="2"/>
+  <rect x="24" y="24" width="56" height="272" rx="12" fill="#163058"/>
+  <rect x="36" y="48" width="32" height="32" rx="6" fill="#0d9488"/>
+  <rect x="36" y="92" width="32" height="32" rx="6" fill="#1e3d6e" opacity="0.7"/>
+  <rect x="36" y="136" width="32" height="32" rx="6" fill="#1e3d6e" opacity="0.7"/>
+  <rect x="96" y="48" width="344" height="140" rx="8" fill="#1e3d6e"/>
+  <path d="M0 90 Q80 70 160 95 T320 80 T480 90" stroke="#334155" stroke-width="6" opacity="0.4" transform="translate(96,48)"/>
+  <path d="M20 70 L100 95 L180 75 L260 110 L340 85" stroke="#14b8a6" stroke-width="2.5" transform="translate(96,48)"/>
+  <circle cx="136" cy="143" r="7" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+  <circle cx="216" cy="123" r="6" fill="#14b8a6" stroke="#fff" stroke-width="2"/>
+  <circle cx="296" cy="158" r="6" fill="#14b8a6" stroke="#fff" stroke-width="2"/>
+  <circle cx="376" cy="133" r="7" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+  <rect x="96" y="204" width="104" height="68" rx="8" fill="#163058" stroke="#1e3d6e"/>
+  <rect x="212" y="204" width="104" height="68" rx="8" fill="#163058" stroke="#0d9488"/>
+  <rect x="328" y="204" width="112" height="68" rx="8" fill="rgba(13,148,136,0.2)" stroke="#0d9488"/>
+  <text x="108" y="232" font-family="system-ui,sans-serif" font-size="10" fill="#94a3b8">Pedidos</text>
+  <text x="108" y="254" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#f8fafc">24</text>
+  <text x="224" y="232" font-family="system-ui,sans-serif" font-size="10" fill="#94a3b8">Repartidores</text>
+  <text x="224" y="254" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#f8fafc">8</text>
+  <text x="340" y="232" font-family="system-ui,sans-serif" font-size="10" fill="#94a3b8">Tiempo prom.</text>
+  <text x="340" y="254" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#2dd4bf">18m</text>
+</svg>
