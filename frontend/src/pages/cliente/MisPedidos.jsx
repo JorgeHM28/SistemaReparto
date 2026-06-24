@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   pedidoService,
   ESTADOS_PEDIDO,
@@ -11,6 +12,8 @@ const FORM_VACIO = {
   longitud: "-58.3816",
 };
 
+import { useLocation } from "react-router-dom";
+
 export default function MisPedidos() {
   const [pedidos, setPedidos] = useState([]);
   const [filtroEstado, setFiltroEstado] = useState("");
@@ -19,6 +22,7 @@ export default function MisPedidos() {
   const [modalAbierto, setModalAbierto] = useState(false);
   const [form, setForm] = useState(FORM_VACIO);
   const [guardando, setGuardando] = useState(false);
+  const location = useLocation();
 
   const cargarPedidos = useCallback(async () => {
     setCargando(true);
@@ -40,6 +44,13 @@ export default function MisPedidos() {
   useEffect(() => {
     cargarPedidos();
   }, [cargarPedidos]);
+
+  useEffect(() => {
+    if (location.state?.openModal) {
+      setModalAbierto(true);
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -126,7 +137,7 @@ export default function MisPedidos() {
         </>
       )}
 
-      {modalAbierto && (
+      {modalAbierto && createPortal(
         <div className="modal-overlay" onClick={() => setModalAbierto(false)}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             <h2>Nuevo pedido</h2>
@@ -186,7 +197,8 @@ export default function MisPedidos() {
               </div>
             </form>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

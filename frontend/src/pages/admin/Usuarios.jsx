@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useAuth } from "../../context/AuthContext";
 import { usuarioService } from "../../services/usuarioService";
 
@@ -247,7 +248,7 @@ export default function Usuarios() {
         )}
       </div>
 
-      {modalAbierto && (
+      {modalAbierto && createPortal(
         <div className="modal-overlay" onClick={cerrarModal}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             <h2>{editando ? "Editar usuario" : "Nuevo usuario"}</h2>
@@ -324,7 +325,8 @@ export default function Usuarios() {
               </div>
             </form>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
