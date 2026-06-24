@@ -3,7 +3,6 @@ import { ubicacionService } from "../../services/ubicacionService";
 import { rutaService } from "../../services/rutaService";
 import { usePolling } from "../../hooks/usePolling";
 import MapView from "../../components/Map/MapView";
-import "../../assets/styles/admin.css";
 
 export default function Monitoreo() {
   const [pedidos, setPedidos] = useState([]);

@@ -3,7 +3,6 @@ import { pedidoService, ESTADO_LABELS } from "../../services/pedidoService";
 import { ubicacionService } from "../../services/ubicacionService";
 import { usePolling } from "../../hooks/usePolling";
 import MapView from "../../components/Map/MapView";
-import "../../assets/styles/admin.css";
 
 export default function Seguimiento() {
   const [pedidoActivo, setPedidoActivo] = useState(null);

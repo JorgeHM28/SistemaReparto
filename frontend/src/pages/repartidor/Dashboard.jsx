@@ -4,7 +4,6 @@ import { dashboardService } from "../../services/dashboardService";
 import { ESTADO_LABELS } from "../../services/pedidoService";
 import { ESTADO_RUTA_LABELS } from "../../services/rutaService";
 import { StatCard, StatsGrid } from "../../components/dashboard/StatCard";
-import "../../assets/styles/admin.css";
 
 export default function Dashboard() {
   const [stats, setStats] = useState(null);

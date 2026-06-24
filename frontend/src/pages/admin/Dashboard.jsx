@@ -4,7 +4,6 @@ import { dashboardService } from "../../services/dashboardService";
 import { usePolling } from "../../hooks/usePolling";
 import MapView from "../../components/Map/MapView";
 import { StatCard, StatsGrid } from "../../components/dashboard/StatCard";
-import "../../assets/styles/admin.css";
 
 export default function Dashboard() {
   const [stats, setStats] = useState(null);

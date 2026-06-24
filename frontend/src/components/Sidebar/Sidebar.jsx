@@ -1,21 +1,22 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Sidebar({ menu }) {
   return (
-    <aside
-      style={{
-        width: "250px",
-        background: "#f5f5f5",
-        padding: "20px",
-      }}
-    >
-      {menu.map((item) => (
-        <div key={item.path}>
-          <Link to={item.path}>
+    <aside className="dashboard-sidebar">
+      <nav className="dashboard-sidebar-nav" aria-label="Menú principal">
+        {menu.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            end={item.path.split("/").length <= 2}
+            className={({ isActive }) =>
+              `dashboard-sidebar-link${isActive ? " active" : ""}`
+            }
+          >
             {item.nombre}
-          </Link>
-        </div>
-      ))}
+          </NavLink>
+        ))}
+      </nav>
     </aside>
   );
 }

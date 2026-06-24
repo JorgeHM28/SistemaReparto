@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from "react";
 import { usuarioService } from "../../services/usuarioService";
 import { rutaService, ESTADO_RUTA_LABELS } from "../../services/rutaService";
 import { ESTADO_LABELS } from "../../services/pedidoService";
-import "../../assets/styles/admin.css";
 
 const FORM_VACIO = {
   repartidor_id: "",

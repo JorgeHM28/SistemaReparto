@@ -3,7 +3,6 @@ import {
   pedidoService,
   ESTADO_LABELS,
 } from "../../services/pedidoService";
-import "../../assets/styles/admin.css";
 
 export default function Entregas() {
   const [pedidos, setPedidos] = useState([]);

@@ -4,7 +4,6 @@ import { ESTADO_LABELS } from "../../services/pedidoService";
 import { ubicacionService } from "../../services/ubicacionService";
 import { useGeolocationTracker } from "../../hooks/useGeolocationTracker";
 import MapView from "../../components/Map/MapView";
-import "../../assets/styles/admin.css";
 
 export default function Ruta() {
   const [data, setData] = useState(null);

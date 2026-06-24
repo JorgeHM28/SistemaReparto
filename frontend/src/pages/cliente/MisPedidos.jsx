@@ -4,7 +4,6 @@ import {
   ESTADOS_PEDIDO,
   ESTADO_LABELS,
 } from "../../services/pedidoService";
-import "../../assets/styles/admin.css";
 
 const FORM_VACIO = {
   direccion_entrega: "",

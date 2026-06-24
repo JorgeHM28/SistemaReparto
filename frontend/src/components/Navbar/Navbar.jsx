@@ -11,36 +11,21 @@ export default function Navbar() {
   };
 
   return (
-    <nav
-      style={{
-        height: "60px",
-        background: "#2563eb",
-        color: "white",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "0 20px",
-      }}
-    >
-      <span style={{ fontWeight: 600 }}>Sistema de Repartos</span>
+    <nav className="dashboard-navbar">
+      <a href="/" className="dashboard-navbar-brand">
+        <img src="/logo-deliverytrack.svg" alt="" width="32" height="32" />
+        <span>
+          Delivery<span className="dashboard-navbar-brand-accent">Track</span>
+        </span>
+      </a>
 
       {usuario && (
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <span style={{ fontSize: "14px" }}>
-            {usuario.nombre} ({usuario.rol})
+        <div className="dashboard-navbar-actions">
+          <span className="dashboard-navbar-user">
+            {usuario.nombre}{" "}
+            <span className="dashboard-navbar-user-role">({usuario.rol})</span>
           </span>
-          <button
-            type="button"
-            onClick={handleLogout}
-            style={{
-              background: "rgba(255,255,255,0.2)",
-              border: "none",
-              color: "white",
-              padding: "6px 12px",
-              borderRadius: "4px",
-              cursor: "pointer",
-            }}
-          >
+          <button type="button" className="btn-logout" onClick={handleLogout}>
             Cerrar sesión
           </button>
         </div>
