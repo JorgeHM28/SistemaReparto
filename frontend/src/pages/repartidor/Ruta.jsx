@@ -90,10 +90,17 @@ export default function Ruta() {
     direccion_entrega: p.direccion_entrega,
     cliente_nombre: p.cliente_nombre,
     estado: p.estado,
+    orden_entrega: p.orden_entrega,
   }));
 
   const repartidoresMapa = miUbicacion ? [miUbicacion] : [];
-  const rutaLinea = paradas.map((p) => [parseFloat(p.latitud), parseFloat(p.longitud)]);
+  const rutaLinea = [];
+  if (miUbicacion) {
+    rutaLinea.push([parseFloat(miUbicacion.latitud), parseFloat(miUbicacion.longitud)]);
+  }
+  paradas.forEach((p) => {
+    rutaLinea.push([parseFloat(p.latitud), parseFloat(p.longitud)]);
+  });
 
   return (
     <div>

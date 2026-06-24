@@ -18,9 +18,9 @@ const defaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = defaultIcon;
 
-const pedidoIcon = L.divIcon({
+const getPedidoIcon = (orden) => L.divIcon({
   className: "map-marker-pedido",
-  html: '<div style="background:#2563eb;color:white;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,.3)">📦</div>',
+  html: `<div style="background:#2563eb;color:white;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,.3);font-weight:bold">${orden ? orden : '📦'}</div>`,
   iconSize: [28, 28],
   iconAnchor: [14, 14],
 });
@@ -81,14 +81,14 @@ export default function MapView({
           <Marker
             key={`pedido-${p.id}`}
             position={[parseFloat(p.latitud), parseFloat(p.longitud)]}
-            icon={pedidoIcon}
+            icon={getPedidoIcon(p.orden_entrega)}
           >
             <Popup>
-              <strong>Pedido #{p.id}</strong>
+              <strong>Pedido #{p.id} {p.orden_entrega ? `(Parada ${p.orden_entrega})` : ''}</strong>
               <br />
               {p.direccion_entrega}
               <br />
-              <small>{p.cliente_nombre || p.cliente_nombre}</small>
+              <small>{p.cliente_nombre}</small>
               <br />
               <small>Estado: {p.estado}</small>
             </Popup>
