@@ -1079,7 +1079,7 @@ address {
   text-align: center;
 }
 
-.modal-overlay {
+.landing-modal-overlay {
   position: fixed;
   inset: 0;
   z-index: 200;
@@ -1094,20 +1094,20 @@ address {
   transition: opacity var(--transition-base), visibility var(--transition-base);
 }
 
-.modal-overlay.is-visible {
+.landing-modal-overlay.is-visible {
   opacity: 1;
   visibility: visible;
 }
 
-.modal-overlay[hidden] {
+.landing-modal-overlay[hidden] {
   display: none;
 }
 
-.modal-overlay:not([hidden]) {
+.landing-modal-overlay:not([hidden]) {
   display: flex;
 }
 
-.modal-content {
+.landing-modal-content {
   position: relative;
   width: 100%;
   max-width: 28rem;
@@ -1120,11 +1120,11 @@ address {
   transition: transform var(--transition-base);
 }
 
-.modal-overlay.is-visible .modal-content {
+.landing-modal-overlay.is-visible .landing-modal-content {
   transform: scale(1) translateY(0);
 }
 
-.modal-close {
+.landing-modal-close {
   position: absolute;
   top: var(--space-md);
   right: var(--space-md);
@@ -1142,18 +1142,18 @@ address {
   transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 
-.modal-close:hover,
-.modal-close:focus-visible {
+.landing-modal-close:hover,
+.landing-modal-close:focus-visible {
   color: var(--color-navy-900);
   background-color: var(--color-surface);
 }
 
-.modal-image {
+.landing-modal-image {
   margin-inline: auto;
   margin-bottom: var(--space-lg);
 }
 
-.modal-title {
+.landing-modal-title {
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 700;
@@ -1161,7 +1161,7 @@ address {
   margin-bottom: var(--space-md);
 }
 
-.modal-text {
+.landing-modal-text {
   font-size: 0.9375rem;
   color: var(--color-text-secondary);
   margin-bottom: var(--space-xl);
@@ -1432,7 +1432,7 @@ address {
   color: var(--color-text-inverse);
 }
 
-[data-theme="dark"] .modal-title {
+[data-theme="dark"] .landing-modal-title {
   color: var(--color-text-inverse);
 }
 

@@ -42,17 +42,17 @@ function SuccessModal({ isOpen, onClose }) {
 
   return (
     <div
-      className="modal-overlay is-visible"
+      className="landing-modal-overlay is-visible"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
       aria-hidden="false"
       onClick={handleOverlayClick}
     >
-      <div className="modal-content">
+      <div className="landing-modal-content">
         <button
           type="button"
-          className="modal-close"
+          className="landing-modal-close"
           ref={closeButtonRef}
           aria-label="Cerrar ventana de confirmación"
           onClick={onClose}
@@ -69,14 +69,14 @@ function SuccessModal({ isOpen, onClose }) {
         <img
           src="/img/registro-exito.svg"
           alt="Ilustración de registro exitoso en DeliveryTrack"
-          className="modal-image"
+          className="landing-modal-image"
           width="200"
           height="160"
         />
-        <h2 id="modal-title" className="modal-title">
+        <h2 id="modal-title" className="landing-modal-title">
           ¡Bienvenido a DeliveryTrack!
         </h2>
-        <p className="modal-text">
+        <p className="landing-modal-text">
           Gracias por registrarte. Tu acceso de prueba está listo — revisa tu bandeja de entrada para activar tu cuenta y comenzar a optimizar tus entregas hoy mismo.
         </p>
         <button type="button" className="btn btn-primary" onClick={onClose}>
