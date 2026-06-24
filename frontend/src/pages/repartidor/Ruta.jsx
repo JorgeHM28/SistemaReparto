@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import { rutaService, ESTADO_RUTA_LABELS } from "../../services/rutaService";
 import { ESTADO_LABELS } from "../../services/pedidoService";
 import { ubicacionService } from "../../services/ubicacionService";
@@ -11,6 +11,7 @@ export default function Ruta() {
   const [error, setError] = useState("");
   const [gpsActivo, setGpsActivo] = useState(false);
   const [miUbicacion, setMiUbicacion] = useState(null);
+  const optimizadaRef = useRef(false);
 
   const cargar = useCallback(async () => {
     setCargando(true);
@@ -34,10 +35,21 @@ export default function Ruta() {
     try {
       const res = await ubicacionService.enviar({ latitud: lat, longitud: lng });
       setMiUbicacion(res.data.ubicacion);
+
+      if (!optimizadaRef.current && data?.ruta && data?.paradas?.length > 1 && data.ruta.estado === "en_proceso") {
+        optimizadaRef.current = true;
+        try {
+          await rutaService.optimizar(data.ruta.id, { latitud_inicio: lat, longitud_inicio: lng });
+          await cargar();
+        } catch (err) {
+          console.error("Error al optimizar automáticamente la ruta:", err);
+          optimizadaRef.current = false;
+        }
+      }
     } catch {
       // Ignorar errores puntuales de red
     }
-  }, []);
+  }, [data, cargar]);
 
   const rutaEnProceso = data?.ruta?.estado === "en_proceso";
   const { activo: gpsConectado, error: gpsError } = useGeolocationTracker(

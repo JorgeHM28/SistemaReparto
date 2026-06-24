@@ -187,13 +187,14 @@ class RutaController
     public function optimizar(int $id): void
     {
         $user = $this->authUser();
-        RoleMiddleware::handle($user, ['admin']);
 
         $ruta = $this->rutaModel->findById($id);
 
         if (!$ruta) {
             Response::error('Ruta no encontrada', 404);
         }
+
+        $this->verificarAcceso($user, $ruta);
 
         $paradas = $this->rutaModel->getParadas($id);
 
