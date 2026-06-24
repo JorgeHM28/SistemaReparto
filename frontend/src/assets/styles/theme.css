@@ -20,7 +20,6 @@
   --color-text-secondary: #475569;
   --color-text-muted: #64748b;
   --color-text-inverse: #f8fafc;
-
   --color-error: #dc2626;
   --color-error-bg: #fef2f2;
 
@@ -56,6 +55,10 @@
   --dashboard-navbar-bg: var(--color-navy-900);
   --dashboard-sidebar-bg: var(--color-navy-800);
   --dashboard-main-bg: var(--color-surface);
+
+  --color-text-inverse-mix: #0a1628;
+  --color-text-primary-mix: #163058;
+  --color-surface-raised-mix: #ffffff;
 }
 
 .app-shell {
@@ -226,7 +229,6 @@
   --color-text-primary: #f1f5f9;
   --color-text-secondary: #94a3b8;
   --color-text-muted: #64748b;
-
   --color-error-bg: rgba(220, 38, 38, 0.12);
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
@@ -235,8 +237,12 @@
   --shadow-featured: 0 16px 48px rgba(13, 148, 136, 0.25);
 
   --dashboard-navbar-bg: #060d18;
-  --dashboard-sidebar-bg: #0a1628;
+  --dashboard-sidebar-bg: #060d18;
   --dashboard-main-bg: #0a1628;
+
+  --color-text-inverse-mix: #f1f5f9;
+  --color-text-primary-mix: #f1f5f9;
+  --color-surface-raised-mix: #060d18;
 }
 
 .theme-toggle {

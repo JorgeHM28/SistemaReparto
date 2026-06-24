@@ -14,7 +14,7 @@
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--color-navy-900);
+  color: var(--color-text-inverse-mix);
   text-align: left;
 }
 
@@ -70,13 +70,13 @@
 }
 
 .btn-secondary {
-  background: var(--color-surface-raised);
-  color: var(--color-navy-700);
+  background: var(--color-surface-raised-mix);
+  color: var(--color-text-primary-mix);
   border: 1px solid var(--color-border);
 }
 
 .btn-secondary:hover {
-  border-color: var(--color-teal-500);
+  border: 1px solid var(--color-teal-500) !important;
   color: var(--color-teal-500);
   text-decoration: none;
 }
@@ -115,7 +115,7 @@
 .data-table th {
   background: var(--color-surface);
   font-weight: 600;
-  color: var(--color-navy-700);
+  color: var(--color-teal-500);
   font-family: var(--font-display);
   font-size: 0.8125rem;
   text-transform: uppercase;
@@ -227,7 +227,7 @@
 }
 
 .stat-card {
-  background: var(--color-surface-raised);
+  background: var(--color-surface-raised-mix);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
   box-shadow: var(--shadow-sm);
@@ -238,7 +238,7 @@
   font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 700;
-  color: var(--color-navy-900);
+  color: var(--color-text-inverse-mix);
   line-height: 1;
 }
 
@@ -262,7 +262,7 @@
   font-family: var(--font-display);
   font-size: 1.125rem;
   font-weight: 700;
-  color: var(--color-navy-800);
+  color: var(--color-text-inverse-mix);
   margin: 0 0 var(--space-sm);
   text-align: left;
 }
