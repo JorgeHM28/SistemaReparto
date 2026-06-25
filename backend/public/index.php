@@ -17,6 +17,7 @@ use App\Controllers\RutaController;
 use App\Controllers\UbicacionController;
 use App\Controllers\UsuarioController;
 use App\Models\Dashboard;
+use App\Models\Empresa;
 use App\Models\Pedido;
 use App\Models\Ruta;
 use App\Models\Ubicacion;
@@ -28,17 +29,18 @@ use App\Services\RouteOptimizer;
 CorsMiddleware::handle($config['cors_origin']);
 
 $jwt = new JwtService($config);
+$empresaModel = new Empresa($pdo);
 $usuarioModel = new Usuario($pdo);
 $pedidoModel = new Pedido($pdo);
 $rutaModel = new Ruta($pdo);
 $ubicacionModel = new Ubicacion($pdo);
 $dashboardModel = new Dashboard($pdo);
 $optimizer = new RouteOptimizer();
-$authController = new AuthController($usuarioModel, $jwt);
+$authController = new AuthController($usuarioModel, $empresaModel, $jwt, $pdo);
 $usuarioController = new UsuarioController($usuarioModel, $jwt);
 $pedidoController = new PedidoController($pedidoModel, $usuarioModel, $jwt);
 $rutaController = new RutaController($rutaModel, $pedidoModel, $usuarioModel, $optimizer, $jwt);
-$ubicacionController = new UbicacionController($ubicacionModel, $pedidoModel, $jwt);
+$ubicacionController = new UbicacionController($ubicacionModel, $pedidoModel, $usuarioModel, $jwt);
 $dashboardController = new DashboardController($dashboardModel, $pedidoModel, $ubicacionModel, $jwt);
 $router = new Router($authController, $usuarioController, $pedidoController, $rutaController, $ubicacionController, $dashboardController, $jwt);
 

@@ -1,17 +1,16 @@
 import { useState } from "react";
-import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth, rutaPorRol } from "../../context/AuthContext";
 import "../../assets/styles/auth.css";
 
-export default function Register() {
-  const { register, estaAutenticado, usuario } = useAuth();
+export default function RegisterEmpresa() {
+  const { registerEmpresa, estaAutenticado, usuario } = useAuth();
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
   const [form, setForm] = useState({
+    empresa_nombre: "",
     nombre: "",
     email: "",
     telefono: "",
-    empresa_slug: searchParams.get("empresa") || "",
     password: "",
     confirmar: "",
   });
@@ -35,24 +34,19 @@ export default function Register() {
       return;
     }
 
-    if (!form.empresa_slug.trim()) {
-      setError("El código de empresa es obligatorio");
-      return;
-    }
-
     setEnviando(true);
 
     try {
-      const u = await register({
+      const u = await registerEmpresa({
+        empresa_nombre: form.empresa_nombre,
         nombre: form.nombre,
         email: form.email,
         telefono: form.telefono || undefined,
-        empresa_slug: form.empresa_slug.trim(),
         password: form.password,
       });
       navigate(rutaPorRol(u.rol));
     } catch (err) {
-      setError(err.response?.data?.error || "Error al registrarse");
+      setError(err.response?.data?.error || "Error al registrar la empresa");
     } finally {
       setEnviando(false);
     }
@@ -61,26 +55,25 @@ export default function Register() {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <h1>Registro</h1>
-        <p>Crear cuenta de cliente en tu empresa</p>
+        <h1>Registrar empresa</h1>
+        <p>Creá tu empresa y cuenta de administrador</p>
 
         {error && <div className="auth-error">{error}</div>}
 
         <form className="auth-form" onSubmit={handleSubmit}>
           <label>
-            Código de empresa
+            Nombre de la empresa
             <input
               type="text"
-              name="empresa_slug"
-              value={form.empresa_slug}
+              name="empresa_nombre"
+              value={form.empresa_nombre}
               onChange={handleChange}
-              placeholder="ej: empresa-demo"
               required
             />
           </label>
 
           <label>
-            Nombre
+            Tu nombre
             <input
               type="text"
               name="nombre"
@@ -136,13 +129,13 @@ export default function Register() {
           </label>
 
           <button type="submit" className="auth-btn" disabled={enviando}>
-            {enviando ? "Registrando..." : "Registrarse"}
+            {enviando ? "Registrando..." : "Crear empresa"}
           </button>
         </form>
 
         <div className="auth-links">
-          <Link to="/">¿Ya tenés cuenta? Iniciar sesión</Link>
-          <Link to="/register-empresa">¿Querés registrar tu empresa?</Link>
+          <Link to="/login">¿Ya tenés cuenta? Iniciar sesión</Link>
+          <Link to="/register">Registrarse como cliente</Link>
         </div>
       </div>
     </div>

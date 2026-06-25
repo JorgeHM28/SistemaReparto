@@ -3,11 +3,13 @@
 namespace App\Controllers;
 
 use App\Helpers\Response;
+use App\Helpers\TenantHelper;
 use App\Helpers\Validator;
 use App\Middleware\AuthMiddleware;
 use App\Middleware\RoleMiddleware;
 use App\Models\Pedido;
 use App\Models\Ubicacion;
+use App\Models\Usuario;
 use App\Services\JwtService;
 
 class UbicacionController
@@ -15,6 +17,7 @@ class UbicacionController
     public function __construct(
         private Ubicacion $ubicacionModel,
         private Pedido $pedidoModel,
+        private Usuario $usuarioModel,
         private JwtService $jwt
     ) {
     }
@@ -58,7 +61,13 @@ class UbicacionController
                 $this->verificarClienteRepartidor($user, $repartidorId);
             } elseif ($user->rol === 'repartidor' && (int) $user->sub !== $repartidorId) {
                 Response::error('No autorizado', 403);
-            } elseif ($user->rol !== 'admin' && $user->rol !== 'cliente' && $user->rol !== 'repartidor') {
+            } elseif ($user->rol === 'admin') {
+                $repartidor = $this->usuarioModel->findById($repartidorId);
+                if (!$repartidor) {
+                    Response::error('Repartidor no encontrado', 404);
+                }
+                TenantHelper::verifyUsuarioEmpresa($repartidor, TenantHelper::empresaId($user));
+            } elseif ($user->rol !== 'cliente' && $user->rol !== 'repartidor') {
                 Response::error('No autorizado', 403);
             }
 
@@ -68,8 +77,9 @@ class UbicacionController
         }
 
         RoleMiddleware::handle($user, ['admin']);
+        $empresaId = TenantHelper::empresaId($user);
 
-        $ubicaciones = $this->ubicacionModel->getUltimasTodos();
+        $ubicaciones = $this->ubicacionModel->getUltimasTodos($empresaId);
 
         Response::json(['ubicaciones' => $ubicaciones]);
     }
@@ -78,17 +88,16 @@ class UbicacionController
     {
         $user = $this->authUser();
         RoleMiddleware::handle($user, ['admin']);
+        $empresaId = TenantHelper::empresaId($user);
 
-        $pedidos = $this->pedidoModel->getAll([
-            'estado' => null,
-        ]);
+        $pedidos = $this->pedidoModel->getAll(['empresa_id' => $empresaId]);
 
         $pedidosActivos = array_values(array_filter(
             $pedidos,
             fn ($p) => in_array($p['estado'], ['pendiente', 'asignado', 'en_ruta'], true)
         ));
 
-        $ubicaciones = $this->ubicacionModel->getUltimasTodos();
+        $ubicaciones = $this->ubicacionModel->getUltimasTodos($empresaId);
 
         Response::json([
             'pedidos' => $pedidosActivos,

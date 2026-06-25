@@ -72,7 +72,9 @@ export default function Login() {
         </form>
 
         <div className="auth-links">
-          <Link to="/register">Crear cuenta</Link>
+          <Link to="/register">Crear cuenta cliente</Link>
+          {" · "}
+          <Link to="/register-empresa">Registrar empresa</Link>
           {" · "}
           <Link to="/recuperar-password">¿Olvidaste tu contraseña?</Link>
         </div>

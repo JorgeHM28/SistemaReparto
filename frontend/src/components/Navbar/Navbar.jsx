@@ -24,6 +24,9 @@ export default function Navbar() {
         <div className="dashboard-navbar-actions">
           <ThemeToggle className="theme-toggle--dashboard" />
           <span className="dashboard-navbar-user">
+            {usuario.empresa_nombre && (
+              <span className="dashboard-navbar-user-role">{usuario.empresa_nombre} · </span>
+            )}
             {usuario.nombre}{" "}
             <span className="dashboard-navbar-user-role">({usuario.rol})</span>
           </span>

@@ -41,21 +41,29 @@ class Ubicacion
         return $row ?: null;
     }
 
-    public function getUltimasTodos(): array
+    public function getUltimasTodos(?int $empresaId = null): array
     {
-        $stmt = $this->pdo->query(
-            'SELECT ub.*, u.nombre AS repartidor_nombre, u.email AS repartidor_email
-             FROM ubicaciones ub
-             INNER JOIN usuarios u ON ub.repartidor_id = u.id
-             INNER JOIN (
-                 SELECT repartidor_id, MAX(fecha_hora) AS max_fecha
-                 FROM ubicaciones
-                 GROUP BY repartidor_id
-             ) latest ON ub.repartidor_id = latest.repartidor_id
-                     AND ub.fecha_hora = latest.max_fecha
-             WHERE u.rol = \'repartidor\' AND u.activo = 1
-             ORDER BY u.nombre ASC'
-        );
+        $sql = 'SELECT ub.*, u.nombre AS repartidor_nombre, u.email AS repartidor_email
+                FROM ubicaciones ub
+                INNER JOIN usuarios u ON ub.repartidor_id = u.id
+                INNER JOIN (
+                    SELECT repartidor_id, MAX(fecha_hora) AS max_fecha
+                    FROM ubicaciones
+                    GROUP BY repartidor_id
+                ) latest ON ub.repartidor_id = latest.repartidor_id
+                        AND ub.fecha_hora = latest.max_fecha
+                WHERE u.rol = \'repartidor\' AND u.activo = 1';
+        $params = [];
+
+        if ($empresaId !== null) {
+            $sql .= ' AND u.empresa_id = :empresa_id';
+            $params['empresa_id'] = $empresaId;
+        }
+
+        $sql .= ' ORDER BY u.nombre ASC';
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($params);
 
         return $stmt->fetchAll();
     }

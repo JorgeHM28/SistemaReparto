@@ -38,6 +38,10 @@ class Router
             $this->auth->register();
         }
 
+        if ($method === 'POST' && $uri === '/auth/register-empresa') {
+            $this->auth->registerEmpresa();
+        }
+
         if ($method === 'POST' && $uri === '/auth/logout') {
             AuthMiddleware::handle($this->jwt);
             $this->auth->logout();

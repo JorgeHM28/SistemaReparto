@@ -9,6 +9,7 @@ import LandingPage from "../pages/LandingPage";
 
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
+import RegisterEmpresa from "../pages/auth/RegisterEmpresa";
 import RecuperarPassword from "../pages/auth/RecuperarPassword";
 
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
@@ -40,6 +41,7 @@ export default function AppRoutes() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/register-empresa" element={<RegisterEmpresa />} />
         <Route path="/recuperar-password" element={<RecuperarPassword />} />
 
         <Route
